@@ -15,9 +15,9 @@ export async function PUT(request) {
   console.log("==============================================");
   console.log("==============================================");
   try {
-    const { isAdmin, isEmployee } = await request.json();
+    const { isAdmin, isSupportStaff } = await request.json();
 
-    const updatedUser = await User.findByIdAndUpdate(userId, { isAdmin, isEmployee }, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(userId, { isAdmin, isSupportStaff }, { new: true });
 
     if (!updatedUser) {
       return NextResponse.json({ error: "User not found" });

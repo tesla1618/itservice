@@ -19,6 +19,11 @@ const ticketSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  assignedTo: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    default: null,
+  },
 });
 
 const Ticket = mongoose.models.Ticket || mongoose.model("Ticket", ticketSchema);

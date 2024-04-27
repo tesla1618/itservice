@@ -32,6 +32,7 @@ function ReplyForm({ ticketId }) {
       await axios.post("/api/replies/create", { ticketId, reply });
       // Update the list of replies here (you might need to lift the state up)
       setReply(""); // Clear the reply input after submission
+      window.location.reload(); // Reload the page to see the new reply
     } catch (error) {
       console.error("Error submitting reply:", error);
     }

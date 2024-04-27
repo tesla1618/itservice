@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
       username: user.username,
       email: user.email,
       isAdmin: user.isAdmin,
-      isEmployee: user.isEmployee,
+      isSuppportStaff: user.isSupportStaff,
     };
 
     // Create a token with expiration of 1 day
@@ -62,6 +62,8 @@ export async function POST(request: NextRequest) {
 
     const response = NextResponse.json({
       message: "Login successful",
+      isAdmin: user.isAdmin,
+      isSupportStaff: user.isSupportStaff,
       success: true,
     });
 

@@ -21,14 +21,18 @@ export function SigninForm() {
       setLoading(true);
       const response = await axios.post("/api/users/login", user);
       // If login is successful, redirect to dashboard or homepage
-      router.push("/");
+      if (response.data.isAdmin) {
+        router.push("/admin/dashboard");
+      } else {
+        router.push("/");
+      }
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
         setError(error.response.data.error);
       } else {
-        setError("An error occurred during signup.");
+        setError("An error occurred during Login.");
       }
-      console.error("Signup failed", error.message);
+      console.error("Login failed", error.message);
     }
   };
 

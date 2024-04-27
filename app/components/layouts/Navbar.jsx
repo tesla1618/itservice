@@ -19,6 +19,7 @@ function Navbar() {
     try {
       const res = await axios.get("/api/users/me");
       setisAuth(true);
+      console.log(res.data.data.isAdmin);
       setData(res.data.data);
       setBtnText("Logout");
     } catch (error) {
